@@ -21,7 +21,7 @@ if typeof(copyfunction) == "function" then
     end
 end
 
--- Save Managee Properties.
+-- Save Manager Properties.
 SaveManager.Folder = "Voyager" -- Oh remi why didn't you make a function to change this? BECAUSE IT'S MINE.
 SaveManager.SubFolder = nil
 SaveManager.FileName = "config.json"
