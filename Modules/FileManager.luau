@@ -1,36 +1,30 @@
 -- FileManager.lua
 local FileManager = {}
 
-FileManager.BaseFolder = "Voyager" -- just in case
+FileManager.BaseFolder = "Voyager"
 FileManager.AssetsFolder = FileManager.BaseFolder .. "/assets"
 
 if not isfolder(FileManager.BaseFolder) then makefolder(FileManager.BaseFolder) end
 if not isfolder(FileManager.AssetsFolder) then makefolder(FileManager.AssetsFolder) end
 
--- vvv Useless
---[[function FileManager.CheckFile(filePath)
-    if not isfile(filePath) then
-        writefile(filePath, defaultContent or "")
-        warn("[Voyager] Created missing file:", filePath)
-    end
-    return filePath
-end--]]
-
 --// Functions
-function FileManager:SetFile(fileName,fileUrl,fileExtension) -- Lazy
-        local filePath = FileManager.AssetsFolder .. "/" .. fileName .. fileExtension
+function FileManager:SetFile(fileName, fileUrl, fileExtension)
+    fileExtension = fileExtension or ".png"
+    local filePath = self.AssetsFolder .. "/" .. fileName .. fileExtension
+
     if not isfile(filePath) then
-        FileManager.DownloadFile(fileName,fileUrl,fileExtension)
+        self:DownloadFile(fileName, fileUrl, fileExtension)
     end
-    return FileManager.GetAsset(fileName, fileExtension)
+
+    return self:GetAsset(fileName, fileExtension)
 end
 
-function FileManager.DownloadFile(fileName, fileUrl, fileExtension)
-    assert(fileName, "File name is required.")
-    assert(fileUrl, "File URL is required.")
+function FileManager:DownloadFile(fileName, fileUrl, fileExtension)
+    assert(fileName, "[Voyager] File name is required.")
+    assert(fileUrl, "[Voyager] File URL is required.")
     fileExtension = fileExtension or ".png"
 
-    local filePath = FileManager.AssetsFolder .. "/" .. fileName .. fileExtension
+    local filePath = self.AssetsFolder .. "/" .. fileName .. fileExtension
 
     if isfile(filePath) then
         return filePath
@@ -49,12 +43,19 @@ function FileManager.DownloadFile(fileName, fileUrl, fileExtension)
     end
 end
 
-function FileManager.GetAsset(fileName, fileExtension)
+function FileManager:GetAsset(fileName, fileExtension)
     fileExtension = fileExtension or ".png"
-    local filePath = FileManager.AssetsFolder .. "/" .. fileName .. fileExtension
+    local filePath = self.AssetsFolder .. "/" .. fileName .. fileExtension
 
     if isfile(filePath) then
-        return getsynasset(filePath) or getcustomasset(filePath) or warn("[Voyager] Executor not supported")
+        if getsynasset then
+            return getsynasset(filePath)
+        elseif getcustomasset then
+            return getcustomasset(filePath)
+        else
+            warn("[Voyager] Executor does not support custom assets.")
+            return nil
+        end
     else
         warn("[Voyager] File not found:", filePath)
         return nil
