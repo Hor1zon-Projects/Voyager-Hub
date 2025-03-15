@@ -18,6 +18,7 @@ end--]]
 
 --// Functions
 function FileManager:SetFile(fileName,fileUrl,fileExtension) -- Lazy
+        local filePath = FileManager.AssetsFolder .. "/" .. fileName .. fileExtension
     if not isfile(filePath) then
         FileManager.DownloadFile(fileName,fileUrl,fileExtension)
     end
