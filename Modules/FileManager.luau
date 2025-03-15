@@ -21,7 +21,7 @@ function FileManager:SetFile(fileName,fileUrl,fileExtension) -- Lazy
     if not isfile(filePath) then
         FileManager.DownloadFile(fileName,fileUrl,fileExtension)
     end
-    FileManager.GetAsset(fileName, fileExtension)
+    return FileManager.GetAsset(fileName, fileExtension)
 end
 
 function FileManager.DownloadFile(fileName, fileUrl, fileExtension)
