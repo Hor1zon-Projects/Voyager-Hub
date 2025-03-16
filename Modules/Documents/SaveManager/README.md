@@ -20,7 +20,7 @@ Flags.Example = true
 SaveManager:Save(Flags)
 
 task.wait(10)
-SaveManager:Delete() -- Used for debugging or smth.
+SaveManager:Delete() --// Used for debugging or smth.
 
 ```
 
