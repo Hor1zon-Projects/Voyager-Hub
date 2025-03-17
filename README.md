@@ -39,6 +39,7 @@ This version is **full with features** and **optimized** for the **best experien
 *No, this version won't have a key system due to being less demanding / less impactful. Still useful but not as powerful than the full version*
 
 **-Full**
+
 *Yes, this version will have a key system. The reason why we decided to have a key system is to fund our project and pay our hardworking developers.*
 
 #### **Are you going to open source Voyager?**
