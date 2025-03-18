@@ -54,7 +54,7 @@ function UICreator.New(Name, Properties, Children)
 end
 
 
-function Creator.Tween(Object, Time, Properties, ...)
+function UICreator.Tween(Object, Time, Properties, ...)
     assert(Object and Time and Properties, "Invalid arguments to Tween")
     return TweenService:Create(Object, TweenInfo.new(Time, ...), Properties)
 end
