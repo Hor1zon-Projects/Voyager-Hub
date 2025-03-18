@@ -30,6 +30,7 @@ This version is **full with features** and **optimized** for the **best experien
 *Forsaken and fisch, but it isn't exactly confirm yet.*
 
 **-Full**
+
 *No information yet.*
 
 #### **Is Voyager gonna have a key system?**
