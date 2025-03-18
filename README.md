@@ -2,6 +2,8 @@
 # Voyager Hub 
 The repository is the **base** of Voyager, serving as the structure of the hub.
 
+![Thumbnail](https://raw.githubusercontent.com/Hor1zon-Projects/Voyager-Hub/refs/heads/main/Assets/BG.png)
+
 ## Full
 *(Coming soon.)*
 
