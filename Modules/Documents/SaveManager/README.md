@@ -9,7 +9,7 @@ A module that handles **Save Files**, this module organizes the files properly. 
 ## **Usage**
 
 ```luau
-local SaveManager = loadstring("https://raw.githubusercontent.com/Hor1zon-Projects/Voyager-Hub/refs/heads/main/Modules/SaveManager.luau")()
+local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/Hor1zon-Projects/Voyager-Hub/refs/heads/main/Modules/SaveManager.luau"))()
 
 SaveManager:SetSubFolder("NameHere")
 print(SaveManager:ListConfigs())
