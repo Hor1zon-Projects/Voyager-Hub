@@ -15,7 +15,6 @@ if typeof(copyfunction) == "function" then
     end)
 
     if isfolder_success == false or typeof(isfolder_error) ~= "boolean" then
-        warn(isfolder_error)
         isfolder = function(folder) return select(2, pcall(isfolder_copy, folder)) or false end
         isfile = function(file) return select(2, pcall(isfile_copy, file)) or false end
         listfiles = function(folder) return select(2, pcall(listfiles_copy, folder)) or {} end
