@@ -82,7 +82,7 @@ function SaveManager:Delete()
     local filePath = self:GetFilePath()
     if isfile(filePath) then delfile(filePath) end
 end
-.
+
 function SaveManager:ListConfigs()
     if not listfiles_supported then return {} end
 
