@@ -7,6 +7,7 @@ local HttpService = cloneref(game:GetService("HttpService")) -- just in case.
 -- new check thing
 local function safe_pcall(func, ...)
     local success, result = pcall(func, ...)
+    if not success then print(result) end
     return success and result or nil
 end
 
