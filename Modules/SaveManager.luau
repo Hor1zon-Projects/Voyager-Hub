@@ -65,7 +65,7 @@ function SaveManager:Save(flags)
     if makefolder_supported and self.SubFolder and not isfolder(folderPath) then
         makefolder(folderPath)
     end
-
+    print(flags)
     local success, err = pcall(function()
         writefile(filePath, HttpService:JSONEncode(flags))
     end)
